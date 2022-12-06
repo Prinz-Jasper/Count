@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.google.com">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{
+    margin-top: 120px;
+    margin-left: -350px;
+    background-image: url("Assets/images/fireworks-design-background_1934169.jpeg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+p {
+  color:  white;
+  font-size: 70px;
+  margin-top: 15px;
+  display: inline;
+  font-family: "Caveat";
+  margin-left: 30px;
+}
+.cnt{
+    padding-top: 0px;
+    padding-left: 0px;
+    display: flex;
+    margin-left: 10px;
+    justify-content:space-evenly;
+    justify-content: center;
+    
+}
+h1{
+    text-align: center;
+   color:  #A49F02;
+   margin-top: -50px;
+   font-size: 90px;
+   margin-left: 55px;
+   font-family: "Kaushan Script";
+}
+h2{
+    color:  silver;
+font-size: 40px;
+margin-left: 20px;
+font-family: "Caveat";
+padding-left: 10px;
+margin-top: -30px;
+word-spacing: normal;
+}
+a {
+    text-decoration: none;
+    color:#A49F02;
+    transition: font-size 0.5s, transform 2s;
+
+}
+.links{
+    margin-left: 450px;
+    margin-top: -50px;
+text-align: left;
+}
+a:hover{
+    color: #FFD700;
+    font-size: 20px;
+    border-bottom: 2px solid #FFD700;
+}
+
+
+</style>
+</head>
+<body>
+
+    <h1>New Year Countdown</h1>
+<h2>Webcoupers New Year Countdown </h2>
+
+    <div class="cnt">
+    <p id="days"></p>
+    <p id="hours"></p>
+    <p id="mins"></p>
+    <p id="secs"></p>
+    <h2 id="end"></h2>
+
+    <script>
+    // The data/time we want to countdown to
+    var countDownDate = new Date("January 01, 2023 00:00:00").getTime();
+
+    // Run myfunc every second
+    var myfunc = setInterval(function() {
+
+    var now = new Date().getTime();
+    var timeleft = countDownDate - now;
+        
+    // Calculating the days, hours, minutes and seconds left
+    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        
+    // Result is output to the specific element
+    document.getElementById("days").innerHTML = days +  ":<br>Days"
+    document.getElementById("hours").innerHTML = hours + ":<br>Hours" 
+    document.getElementById("mins").innerHTML = minutes + ":<br>Minutes" 
+    document.getElementById("secs").innerHTML = seconds + "<br>Seconds" 
+        
+    
+    // Display the message when countdown is over
+    if (timeleft < 0) {
+        clearInterval(myfunc);
+        document.getElementById("days").innerHTML = ""
+        document.getElementById("hours").innerHTML = "" 
+        document.getElementById("mins").innerHTML = ""
+        document.getElementById("secs").innerHTML = ""
+        document.getElementById("end").innerHTML = "Merry Christmas!!";
+    }
+    }, 1000);
+    </script>
+    </div>
+    <div class="links">
+    <a href="seconnd.html">Christmas Countdown </a>
+   
+
+
+
+
+    </div>
+</body>
+</html>
