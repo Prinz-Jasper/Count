@@ -13,7 +13,7 @@
     text-align: center;
 }
 p {
-  color:  black;
+  color:  white;
   font-size: 70px;
   margin-top: 15px;
   display: inline;
@@ -63,66 +63,81 @@ a:hover{
     border-bottom: 2px solid #FFD700;
 }
 
+.overlay
+{
+    position: absolute;
+    background: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.main-div
+{
+    z-index: 999;
+    position: relative;
+}
+
 
 </style>
 </head>
 <body>
 
-    <h1>Christmas Countdown</h1>
-<h2>Webcoupers Christmas Countdown </h2>
+    <div class="main-div">
+        <h1>Christmas Countdown</h1>
+        <h2>Webcoupers Christmas Countdown </h2>
 
-    <div class="cnt">
-    <p id="days"></p>
-    <p id="hours"></p>
-    <p id="mins"></p>
-    <p id="secs"></p>
-    <h2 id="end"></h2>
+        <div class="cnt">
+        <p id="days"></p>
+        <p id="hours"></p>
+        <p id="mins"></p>
+        <p id="secs"></p>
+        <h2 id="end"></h2>
+        </div>
+        <div class="links">
+            <a href="miex.html">New Year Countdown </a>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
 
     <script>
-    // The data/time we want to countdown to
-    var countDownDate = new Date("December 25, 2022 ").getTime();
-
-    // Run myfunc every second
-    var myfunc = setInterval(function() {
-
-    var now = new Date().getTime();
-    var timeleft = countDownDate - now;
-        
-    // Calculating the days, hours, minutes and seconds left
-    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-
-
-    // Result is output to the specific element
-    document.getElementById("days").innerHTML = days +  ":<br>Days"
-    document.getElementById("hours").innerHTML = hours + ":<br>Hours" 
-    document.getElementById("mins").innerHTML = minutes + ":<br>Minutes" 
-    document.getElementById("secs").innerHTML = seconds + "<br>Seconds" 
-        
+        // The data/time we want to countdown to
+        var countDownDate = new Date("December 25, 2022 ").getTime();
     
-    // Display the message when countdown is over
-    if (timeleft < 0) {
-        clearInterval(myfunc);
-        document.getElementById("days").innerHTML = ""
-        document.getElementById("hours").innerHTML = "" 
-        document.getElementById("mins").innerHTML = ""
-        document.getElementById("secs").innerHTML = ""
-        document.getElementById("end").innerHTML = "Merry Christmas!!";
-    }
-    }, 1000);
+        // Run myfunc every second
+        var myfunc = setInterval(function() {
+    
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+            
+        // Calculating the days, hours, minutes and seconds left
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+    
+    
+        // Result is output to the specific element
+        document.getElementById("days").innerHTML = days +  ":<br>Days"
+        document.getElementById("hours").innerHTML = hours + ":<br>Hours" 
+        document.getElementById("mins").innerHTML = minutes + ":<br>Minutes" 
+        document.getElementById("secs").innerHTML = seconds + "<br>Seconds" 
+            
+        
+        // Display the message when countdown is over
+        if (timeleft < 0) {
+            clearInterval(myfunc);
+            document.getElementById("days").innerHTML = ""
+            document.getElementById("hours").innerHTML = "" 
+            document.getElementById("mins").innerHTML = ""
+            document.getElementById("secs").innerHTML = ""
+            document.getElementById("end").innerHTML = "Merry Christmas!!";
+        }
+        }, 1000);
     </script>
-    </div>
-    <div class="links">
-    <a href="miex.html">New Year Countdown </a>
-
-   
-
-
-
-
-    </div>
 </body>
 </html>
 
